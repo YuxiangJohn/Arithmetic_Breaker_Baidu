@@ -120,9 +120,9 @@ model=train_model()
 model.fit_generator(gen(), steps_per_epoch=10000, epochs=5,
                     validation_data=gen(), validation_steps=1000,workers=2)
 """
-model.fit_generator(gen(), samples_per_epoch=51200, nb_epoch=5, 
+model.fit_generator(gen(), samples_per_epoch=90000, nb_epoch=5, 
                     nb_worker=2, pickle_safe=True, 
-                    validation_data=gen(), nb_val_samples=1280)
+                    validation_data=gen(), nb_val_samples=10000)
 model.save('match.h5')
 
 
