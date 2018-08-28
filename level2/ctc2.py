@@ -146,9 +146,9 @@ evaluator = Evaluate()
 
 # In[ ]:
 for loop in range(10):
-    model.fit_generator(gen(1), samples_per_epoch=50000, nb_epoch=20,
+    model.fit_generator(gen(1), samples_per_epoch=90000, nb_epoch=25,
                     callbacks=[EarlyStopping(patience=10), evaluator],
-                    validation_data=gen(1), nb_val_samples=1000)
+                    validation_data=gen(1), nb_val_samples=10000)
 
     model.save('ctc2_f.h5')
     base_model.save('base_ctc2_f.h5')
