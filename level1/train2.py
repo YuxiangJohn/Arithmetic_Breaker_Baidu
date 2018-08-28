@@ -82,8 +82,8 @@ from keras.applications.vgg16 import VGG16
 # In[ ]:
 
 model = load_model('match.h5')
-model.fit_generator(gen(), samples_per_epoch=80000, nb_epoch=1, 
+model.fit_generator(gen(), samples_per_epoch=90000, nb_epoch=25, 
                     nb_worker=2, pickle_safe=True, 
-                    validation_data=valid_gen(), nb_val_samples=9600)
+                    validation_data=valid_gen(), nb_val_samples=10000)
 model.save('match2.h5')
 
