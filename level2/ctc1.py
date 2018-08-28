@@ -174,8 +174,8 @@ evaluator = Evaluate()
 # In[ ]:
 
 
-model.fit_generator(gen(128), samples_per_epoch=51200, nb_epoch=5,
+model.fit_generator(gen(128), samples_per_epoch=90000, nb_epoch=25,
                     callbacks=[EarlyStopping(patience=5), evaluator],
-                    validation_data=gen(), nb_val_samples=1280)
+                    validation_data=gen(), nb_val_samples=10000)
 model.save('match_ctc1.h5')
 
