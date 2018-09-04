@@ -107,7 +107,7 @@ def train_model():
 
     #In the summary, weights and layers from VGG part will be hidden, but they will be fit during the training
     #model.summary()
-    model.compile(optimizer='adadelta', loss='categorical_crossentropy', metrics=['accuracy'])
+    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
     return model
 
 
