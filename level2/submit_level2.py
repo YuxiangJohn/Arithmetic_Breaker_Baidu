@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[1]:
+
 
 import cv2
 import numpy as np
@@ -12,7 +12,7 @@ import re
 import codecs
 
 
-# In[2]:
+
 
 number = '0123456789'
 chinese = '君不见黄河之水天上来奔流到海不复回烟锁池塘柳深圳铁板烧'
@@ -23,7 +23,7 @@ characters2 = number + sign + chinese + bracket + ' '
 width2, height2, n_len2, n_class2=320, 55, 30, len(characters2)
 
 
-# In[3]:
+
 
 number = '0123456789'
 chinese = '君不见黄河之水天上来奔流到海不复回烟锁池塘柳深圳铁板烧'
@@ -34,25 +34,25 @@ characters= number + sign + chinese + ' '
 width1, height1, n_len1, n_class1=180, 75, 8, len(characters)
 
 
-# In[4]:
+
 
 from keras.models import *
 from keras.layers import *
 from keras import backend as K
 
 
-# In[5]:
+
 
 model1 = load_model("base_ctc13.h5") #ctc1
 model2 = load_model("base_ctc2_6.h5") #ctc2
 
 
-# In[6]:
+
 
 import time
 
 
-# In[7]:
+
 
 start=time.clock()
 X_test_1 = np.zeros((1, width1, height1, 3), dtype=np.uint8)
@@ -88,19 +88,5 @@ for i in range(0,100000):
 file.close()
 end=time.clock()
 print(end-start)
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
 
 
