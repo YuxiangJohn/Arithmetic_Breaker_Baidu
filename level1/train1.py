@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[1]:
+
 
 from captcha.image import ImageCaptcha
 import matplotlib.pyplot as plt # plt 用于显示图片
@@ -10,18 +10,18 @@ import numpy as np
 import random
 
 
-# In[34]:
+
 
 width,height, n_len,n_class=180, 60, 7, 16
 
 
-# In[78]:
+
 
 imageCap = ImageCaptcha(width=width, height=height)
 a = imageCap.generate_image('1-2*3  ')
 
 
-# In[52]:
+
 
 import string
 number = '0123456789'
@@ -31,7 +31,7 @@ characters = number + sign + bracket+' '
 mix_nb='0123456789(((((((((('
 
 
-# In[32]:
+
 
 def gen(batch_size=32):
     X = np.zeros((batch_size, height, width, 3), dtype=np.uint8)
@@ -77,15 +77,12 @@ def gen(batch_size=32):
         yield X, y
 
 
-# In[84]:
 
 from keras.layers import *
 from keras.models import *
 from keras.applications.resnet50 import ResNet50
 from keras.applications.vgg16 import VGG16
 
-
-# In[86]:
 
 #VGG16
 def train_model():
@@ -111,8 +108,6 @@ def train_model():
     return model
 
 
-# In[87]:
-
 
 model=train_model()
 
@@ -125,8 +120,6 @@ model.fit_generator(gen(), samples_per_epoch=90000, nb_epoch=25,
                     validation_data=gen(), nb_val_samples=10000)
 model.save('match.h5')
 
-
-# In[ ]:
 
 
 
