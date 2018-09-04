@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[ ]:
+
 
 number = '0123456789'
 chinese = '君不见黄河之水天上来奔流到海不复回烟锁池塘柳深圳铁板烧'
@@ -11,7 +11,6 @@ characters = number + sign + chinese + bracket +' '
 width, height, n_len, n_class=350, 55, 33, len(characters)
 
 
-# In[ ]:
 
 import cv2
 import numpy as np
@@ -23,7 +22,6 @@ import codecs
 label = np.fromiter(codecs.open("labels.txt", encoding="utf-8"), dtype="<U100")
 
 
-# In[ ]:
 
 def ctc_lambda_func(args):
     y_pred, labels, input_length, label_length = args
@@ -31,7 +29,7 @@ def ctc_lambda_func(args):
     return K.ctc_batch_cost(labels, y_pred, input_length, label_length)
 
 
-# In[ ]:
+
 
 from keras.models import *
 from keras.layers import *
@@ -75,7 +73,7 @@ label_length = Input(name='label_length', shape=[1], dtype='int64')
 loss_out = Lambda(ctc_lambda_func, output_shape=(1,), name='ctc')([x, labels, input_length, label_length])
 
 model = Model(input=[input_tensor, labels, input_length, label_length], output=[loss_out])
-model.compile(loss={'ctc': lambda y_true, y_pred: y_pred}, optimizer='adadelta')
+model.compile(loss={'ctc': lambda y_true, y_pred: y_pred}, optimizer='adam')
 
 
 # In[ ]:
@@ -112,7 +110,7 @@ def gen(batch_size=64):
         yield [X, y,np.ones(batch_size)*int(conv_shape[1]-2),label_length], np.ones(batch_size)
 
 
-# In[ ]:
+
 
 def evaluate(model, batch_num=10):
     batch_acc = 0
@@ -127,7 +125,7 @@ def evaluate(model, batch_num=10):
     return batch_acc / batch_num
 
 
-# In[ ]:
+
 
 from keras.callbacks import *
 
@@ -144,7 +142,7 @@ class Evaluate(Callback):
 evaluator = Evaluate()
 
 
-# In[ ]:
+
 for loop in range(10):
     model.fit_generator(gen(1), samples_per_epoch=90000, nb_epoch=25,
                     callbacks=[EarlyStopping(patience=10), evaluator],
