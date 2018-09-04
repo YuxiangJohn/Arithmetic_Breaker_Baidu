@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[1]:
+
 
 import cv2
 import numpy as np
@@ -10,7 +10,7 @@ import os
 import glob
 
 
-# In[2]:
+
 
 def rect(img, filename):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -150,7 +150,7 @@ def rect(img, filename):
             cv2.imwrite("test/"+filename+"_2.png",roilist[1])
 
 
-# In[21]:
+
 
 def rect1(img, filename):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -290,7 +290,7 @@ def rect1(img, filename):
             cv2.imwrite("train1/"+filename+"_2.png",roilist[1])
 
 
-# In[4]:
+
 
 #create validate
 for i in range(0,2316):
@@ -299,7 +299,6 @@ for i in range(0,2316):
     rect(img, str(i))
 
 
-# In[6]:
 
 # validate
 for i in range(2317,4703):
@@ -308,7 +307,7 @@ for i in range(2317,4703):
     rect(img, str(i))
 
 
-# In[7]:
+
 
 # validate
 for i in range(4704,18919):
@@ -317,16 +316,12 @@ for i in range(4704,18919):
     rect(img, str(i))
 
 
-# In[8]:
-
 # validate
 for i in range(18920,23065):
     img = cv2.imread("validate/"+str(i)+".png")
     #basename = os.path.basename(filename)
     rect(img, str(i))
 
-
-# In[9]:
 
 # validate
 for i in range(23066,29898):
@@ -335,16 +330,12 @@ for i in range(23066,29898):
     rect(img, str(i))
 
 
-# In[4]:
-
 # validate
 for i in range(29900,29990):
     img = cv2.imread("validate/"+str(i)+".png")
     #basename = os.path.basename(filename)
     rect(img, str(i))
 
-
-# In[10]:
 
 # validate
 for i in range(29990,39968):
@@ -353,8 +344,6 @@ for i in range(29990,39968):
     rect(img, str(i))
 
 
-# In[11]:
-
 # validate
 for i in range(39969,44517):
     img = cv2.imread("validate/"+str(i)+".png")
@@ -362,25 +351,17 @@ for i in range(39969,44517):
     rect(img, str(i))
 
 
-# In[12]:
-
 # validate
 for i in range(44518,50460):
     img = cv2.imread("validate/"+str(i)+".png")
     #basename = os.path.basename(filename)
     rect(img, str(i))
 
-
-# In[13]:
-
 # validate
 for i in range(50461,54150):
     img = cv2.imread("validate/"+str(i)+".png")
     #basename = os.path.basename(filename)
     rect(img, str(i))
-
-
-# In[14]:
 
 # validate
 for i in range(54151,58756):
@@ -389,16 +370,12 @@ for i in range(54151,58756):
     rect(img, str(i))
 
 
-# In[15]:
-
 # validate
 for i in range(58757,63223):
     img = cv2.imread("validate/"+str(i)+".png")
     #basename = os.path.basename(filename)
     rect(img, str(i))
 
-
-# In[16]:
 
 # validate
 for i in range(63224,64228):
@@ -407,8 +384,6 @@ for i in range(63224,64228):
     rect(img, str(i))
 
 
-# In[17]:
-
 # validate
 for i in range(64229,70114):
     img = cv2.imread("validate/"+str(i)+".png")
@@ -416,16 +391,12 @@ for i in range(64229,70114):
     rect(img, str(i))
 
 
-# In[18]:
-
 # validate
 for i in range(70115,92216):
     img = cv2.imread("validate/"+str(i)+".png")
     #basename = os.path.basename(filename)
     rect(img, str(i))
 
-
-# In[19]:
 
 # validate
 for i in range(92217,100000):
