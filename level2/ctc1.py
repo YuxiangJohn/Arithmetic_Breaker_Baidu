@@ -2,8 +2,6 @@
 # coding: utf-8
 
 
-
-
 number = '0123456789'
 chinese = '君不见黄河之水天上来奔流到海不复回烟锁池塘柳深圳铁板烧'
 sign = '='
@@ -12,18 +10,12 @@ characters = number + sign + chinese +' '
 width, height, n_len, n_class=180, 75, 8, len(characters)
 
 
-
-
-
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 import random
 import os
 import re
-
-
-
 
 
 from keras import backend as K
@@ -169,8 +161,6 @@ class Evaluate(Callback):
 
 evaluator = Evaluate()
 
-
-# In[ ]:
 
 
 model.fit_generator(gen(128), samples_per_epoch=90000, nb_epoch=25,
