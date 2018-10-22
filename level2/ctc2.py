@@ -76,7 +76,6 @@ model = Model(input=[input_tensor, labels, input_length, label_length], output=[
 model.compile(loss={'ctc': lambda y_true, y_pred: y_pred}, optimizer='adam')
 
 
-# In[ ]:
 
 def gen(batch_size=64):
     X = np.zeros((batch_size, width, height, 3), dtype=np.uint8)
