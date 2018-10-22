@@ -4,8 +4,8 @@
 
 
 from captcha.image import ImageCaptcha
-import matplotlib.pyplot as plt # plt 用于显示图片
-import matplotlib.image as mpimg # mpimg 用于读取图片
+import matplotlib.pyplot as plt 
+import matplotlib.image as mpimg 
 import numpy as np
 import random
 
@@ -89,7 +89,7 @@ def train_model():
     model_vgg16_conv = VGG16(weights='imagenet', include_top=False)
     #model_vgg16_conv.summary()
 
-    #Create your own input format (here 3x200x200)
+    
     input = Input(shape=(60,180,3),name = 'image_input')
 
     #Use the generated model 
@@ -99,10 +99,10 @@ def train_model():
     x = Flatten(name='flatten')(output_vgg16_conv)
     x = Dropout(0.2)(x)
     x = [Dense(n_class, activation='softmax', name='c%d'%(i+1))(x) for i in range(7)]
-    #Create your own model 
+   
     model = Model(input=input, output=x)
 
-    #In the summary, weights and layers from VGG part will be hidden, but they will be fit during the training
+    
     #model.summary()
     model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
     return model
