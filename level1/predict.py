@@ -1,7 +1,6 @@
 
 # coding: utf-8
 
-# In[1]:
 
 number = '0123456789'
 sign  ='+-*'
@@ -12,9 +11,7 @@ def decode(y):
     return ''.join([characters[x] for x in y])
 
 
-# In[2]:
-
-import matplotlib.pyplot as plt # plt 用于显示图片
+import matplotlib.pyplot as plt
 
 import numpy as np
 import cv2
